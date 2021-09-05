@@ -4,7 +4,6 @@ import clsx from "clsx";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { DateSelector, DiffCalculator, Result, Title } from "..";
-import { Explain } from "./components";
 
 const useStyles = makeStyles(theme => ({
   root: { flex: 1 },
@@ -146,7 +145,7 @@ const DiffDaysDate = props => {
         date1={diffDaysDate1}
         date2={diffDaysDate2}
       />
-      {matches && <Explain />}
+      {/* {matches && <Explain />} */}
     </div>
   );
 };

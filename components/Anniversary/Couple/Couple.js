@@ -1,5 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 import { DateTime } from "luxon";
 import Head from "next/head";
 import Image from "next/image";
@@ -23,12 +24,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Couple = () => {
+const Couple = props => {
+  const { className } = props;
+
   const classes = useStyles();
   const year = useMemo(() => DateTime.now().toFormat("yyyy"), []);
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, className)}>
       <Head>
         <title>연인과의 기념일</title>
         <meta

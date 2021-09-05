@@ -23,23 +23,23 @@ const useStyles = makeStyles(theme => ({
 const Components = [
   {
     key: "00",
-    components: <Couple />
+    components: props => <Couple className={props.className} />
   },
   {
     key: "01",
-    components: <Calculator />
+    components: props => <Calculator className={props.className} />
   },
   {
     key: "10",
-    components: <Mbti />
+    components: props => <Mbti className={props.className} />
   },
   {
     key: "11",
-    components: <BloodType />
+    components: props => <BloodType className={props.className} />
   },
   {
     key: "20",
-    components: <Sudoku />
+    components: props => <Sudoku className={props.className} />
   }
 ];
 
@@ -61,10 +61,10 @@ const Layout = props => {
           setSelected(selected);
         }}
       />
-      <div className={classes.contents}>
-        {selected?.length &&
-          Components.find(el => el.key === selected.join("")).components}
-      </div>
+      {selected?.length &&
+        Components.find(el => el.key === selected.join("")).components({
+          className: classes.contents
+        })}
       {/* {children} */}
       <Footer />
     </ThemeProvider>
