@@ -1,19 +1,22 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { unstable_createMuiStrictModeTheme } from "@material-ui/core/styles";
-const theme = unstable_createMuiStrictModeTheme();
-import { ThemeProvider } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  ThemeProvider,
+  unstable_createMuiStrictModeTheme
+} from "@material-ui/core/styles";
 import { useState } from "react";
+import { BloodType, Calculator, Couple, Mbti, Sudoku } from "../../components";
 import { menus } from "../../data";
 import Footer from "../Footer";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
-import { Couple, Calculator, Mbti, BloodType, Sudoku } from "../../components";
+
+const theme = unstable_createMuiStrictModeTheme();
 
 const useStyles = makeStyles(theme => ({
   contents: {
-    // height: "calc(100% - 64px - 50px)",
     minHeight: "100%",
-    padding: "15px 10px 60px"
+    padding: "15px 10px 60px",
+    minWidth: 400
   }
 }));
 
@@ -45,7 +48,7 @@ const Layout = props => {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState([0, 1]);
+  const [selected, setSelected] = useState([0, 0]);
 
   return (
     <ThemeProvider theme={theme}>

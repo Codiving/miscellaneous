@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     height: 50,
     width: "100%",
+    minWidth: 400,
     backgroundColor: "#ddd",
     textTransform: "uppercase",
     display: "flex",

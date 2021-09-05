@@ -9,8 +9,8 @@ const useStyles = makeStyles(theme => ({
     position: "sticky",
     top: 0,
     left: 0,
-    height: 64,
-    width: "100%"
+    width: "100%",
+    minWidth: 400
   },
   menuButton: {
     marginRight: theme.spacing(2)
