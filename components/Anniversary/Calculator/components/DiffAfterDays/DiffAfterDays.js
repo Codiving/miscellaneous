@@ -1,12 +1,12 @@
 import { Button, TextField, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { DateSelector, DiffCalculator, Title } from "..";
-import clsx from "clsx";
 
 const useStyles = makeStyles(theme => ({
-  root: { flex: 1, margin: "0 30px" },
+  root: { flex: 1, margin: "0 10px" },
   flex: {
     display: "flex",
     alignItems: "center"
@@ -29,10 +29,20 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "underline",
     textUnderlineOffset: 2,
     color: "red"
+  },
+  result: {
+    display: "flex"
+  },
+  hidden: {
+    visibility: "hidden"
+  },
+  mt30: {
+    margin: "30px 0 0 0"
   }
 }));
 
 const DiffAfterDays = props => {
+  const { matches } = props;
   const classes = useStyles();
 
   const [beforeDate, setBeforeDate] = useState({
@@ -53,7 +63,7 @@ const DiffAfterDays = props => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, { [classes.mt30]: !matches })}>
       <Title value={"날짜 기준으로 몇일 후"} />
       <div
         className={clsx(
@@ -147,18 +157,16 @@ const DiffAfterDays = props => {
           type={2}
         />
       </div>
-      {resultDate && (
-        <div style={{ display: "flex" }}>
-          <Typography>
-            {beforeDate.year}년 {beforeDate.month}월 {beforeDate.day}일의{" "}
-            {afterDays}일 후는{" "}
-          </Typography>
-          <Typography className={classes.red}>
-            {resultDate.year}년 {resultDate.month}월 {resultDate.day}일{" "}
-          </Typography>
-          <Typography>입니다.</Typography>
-        </div>
-      )}
+      <div className={clsx(classes.result, { [classes.hidden]: !resultDate })}>
+        <Typography>
+          {beforeDate.year}년 {beforeDate.month}월 {beforeDate.day}일의{" "}
+          {afterDays}일 후는{" "}
+        </Typography>
+        <Typography className={classes.red}>
+          {resultDate?.year}년 {resultDate?.month}월 {resultDate?.day}일{" "}
+        </Typography>
+        <Typography>입니다.</Typography>
+      </div>
     </div>
   );
 };

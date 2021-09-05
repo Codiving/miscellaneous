@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const DiffDaysDate = () => {
+const DiffDaysDate = props => {
+  const { matches } = props;
+
   const classes = useStyles();
 
   const [diffDaysDate1, setDiffDaysDate1] = useState({
@@ -145,7 +147,7 @@ const DiffDaysDate = () => {
         date1={diffDaysDate1}
         date2={diffDaysDate2}
       />
-      <Explain />
+      {matches && <Explain />}
     </div>
   );
 };

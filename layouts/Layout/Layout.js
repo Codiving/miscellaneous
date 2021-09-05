@@ -11,8 +11,9 @@ import { Couple, Calculator, Mbti, BloodType, Sudoku } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   contents: {
-    height: "calc(100% - 64px - 50px)",
-    padding: 15
+    // height: "calc(100% - 64px - 50px)",
+    minHeight: "100%",
+    padding: "15px 10px 60px"
   }
 }));
 

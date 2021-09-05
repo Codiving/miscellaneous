@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     left: 0,
     height: 64,
-    width: "100%",
-    backgroundColor: "#ddd"
+    width: "100%"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -33,28 +32,26 @@ const Header = props => {
   const classes = useStyles();
 
   return (
-    <header>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={onOpen}
-          >
-            <MenuIcon />
-          </IconButton>
-          <h1 className={classes.title}>잡동사니</h1>
-          {Boolean(selected?.length) && (
-            <h6 className={classes.sub__title}>
-              {categories[selected[0]]} -{" "}
-              {menus[categories[selected[0]]][selected[1]]}
-            </h6>
-          )}
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar position="static" className={classes.header}>
+      <Toolbar>
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
+          onClick={onOpen}
+        >
+          <MenuIcon />
+        </IconButton>
+        <h1 className={classes.title}>잡동사니</h1>
+        {Boolean(selected?.length) && (
+          <h6 className={classes.sub__title}>
+            {categories[selected[0]]} -{" "}
+            {menus[categories[selected[0]]][selected[1]]}
+          </h6>
+        )}
+      </Toolbar>
+    </AppBar>
   );
 };
 
