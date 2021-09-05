@@ -1,13 +1,13 @@
-import Layout from "../layouts/Layout";
+import { Layout2 } from "layouts";
 import "../styles/globals.css";
 
 const MyApp = props => {
   const { Component, pageProps } = props;
 
   return (
-    <Layout>
+    <Layout2>
       <Component {...pageProps} />
-    </Layout>
+    </Layout2>
   );
 };
 

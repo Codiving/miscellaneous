@@ -3,11 +3,11 @@ import {
   ThemeProvider,
   unstable_createMuiStrictModeTheme
 } from "@material-ui/core/styles";
+import { MenuBar } from "layouts";
 import { useState } from "react";
 import { BloodType, Calculator, Couple, Mbti, Sudoku } from "../../components";
 import { menus } from "../../data";
 import Footer from "../Footer";
-import Header from "../Header";
 import Sidebar from "../Sidebar";
 
 const theme = unstable_createMuiStrictModeTheme();
@@ -44,7 +44,7 @@ const Components = [
 ];
 
 const Layout = props => {
-  const { children } = props;
+  // const { children } = props;
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -52,7 +52,7 @@ const Layout = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header selected={selected} onOpen={() => setOpen(prev => !prev)} />
+      <MenuBar selected={selected} onOpen={() => setOpen(prev => !prev)} />
       <Sidebar
         open={open}
         onClose={() => setOpen(false)}
@@ -66,6 +66,7 @@ const Layout = props => {
         {selected?.length &&
           Components.find(el => el.key === selected.join("")).components}
       </div>
+      {/* {children} */}
       <Footer />
     </ThemeProvider>
   );

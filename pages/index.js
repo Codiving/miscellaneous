@@ -1,6 +1,7 @@
+const { Layout } = require("layouts");
+
 const Home = props => {
-  console.log("props", props);
-  return <div>기본입니다</div>;
+  return <Layout />;
 };
 
 export default Home;

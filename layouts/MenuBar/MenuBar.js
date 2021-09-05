@@ -5,7 +5,7 @@ import React from "react";
 import { menus, categories } from "../../data";
 
 const useStyles = makeStyles(theme => ({
-  header: {
+  appbar: {
     position: "sticky",
     top: 0,
     left: 0,
@@ -27,12 +27,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = props => {
+const MenuBar = props => {
   const { onOpen, selected } = props;
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.header}>
+    <AppBar position="static" className={classes.appbar}>
       <Toolbar>
         <IconButton
           edge="start"
@@ -55,4 +55,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default MenuBar;
