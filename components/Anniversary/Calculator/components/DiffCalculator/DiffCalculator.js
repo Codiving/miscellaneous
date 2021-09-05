@@ -20,9 +20,6 @@ const DiffCalculator = props => {
         variant="contained"
         color="primary"
         onClick={() => {
-          console.log("datet1", date1);
-          console.log("datet2", date2);
-
           let date2 = _date2;
 
           if (type === 1) {

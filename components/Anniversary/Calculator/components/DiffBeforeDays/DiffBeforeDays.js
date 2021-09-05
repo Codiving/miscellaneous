@@ -132,7 +132,6 @@ const DiffBeforeDays = props => {
           check={check}
           onHandleCheck={() => setCheck(prev => !prev)}
           onCalculator={result => {
-            console.log("result", result);
             const date = DateTime.fromObject(beforeDate).minus({
               days: Math.abs(result)
             });

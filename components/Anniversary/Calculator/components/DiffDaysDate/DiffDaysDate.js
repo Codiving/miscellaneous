@@ -132,7 +132,6 @@ const DiffDaysDate = props => {
           check={check}
           onHandleCheck={() => setCheck(prev => !prev)}
           onCalculator={result => {
-            console.log(result);
             setDiffDaysDate(result);
             setDisplay(true);
           }}

@@ -58,7 +58,6 @@ const Layout = props => {
         onClose={() => setOpen(false)}
         menus={menus}
         onClick={selected => {
-          console.log("selected", selected);
           setSelected(selected);
         }}
       />

@@ -66,22 +66,19 @@ const CustomTreeItem = props => {
     bgColor,
     name,
     onClick,
+    last,
     ...other
   } = props;
 
   return (
     <TreeItem
+      name={name}
       label={
         <div className={classes.labelRoot}>
           {LabelIcon && (
             <LabelIcon color="inherit" className={classes.labelIcon} />
           )}
-          <Typography
-            variant="body1"
-            className={classes.labelText}
-            onClick={onClick}
-            name={name}
-          >
+          <Typography variant="body1" className={classes.labelText} name={name}>
             {labelText}
           </Typography>
           <Typography variant="caption" color="inherit">
@@ -100,6 +97,9 @@ const CustomTreeItem = props => {
         selected: classes.selected,
         group: classes.group,
         label: classes.label
+      }}
+      onClick={e => {
+        if (last) onClick();
       }}
       {...other}
     />

@@ -52,6 +52,7 @@ const Sidebar = props => {
                       onClick([mainKey, dateKey]);
                       onClose();
                     }}
+                    last={true}
                   ></CustomTreeItem>
                 );
               })}
